@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surati Choli Rentals - Management</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Choli Rentals</h3>
+                <small>Surat Branch</small>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link" data-view="dashboard"> <span class="icon">📊</span> Dashboard</a></li>
+                    <li class="active"><a href="#" class="nav-link" data-view="inventory"> <span class="icon">👗</span> Inventory</a></li>
+                    <li><a href="#" class="nav-link" data-view="bookings"> <span class="icon">📅</span> Bookings</a></li>
+                    <li><a href="#" class="nav-link" data-view="customers"> <span class="icon">👥</span> Customers</a></li>
+                    <li><a href="#" class="nav-link" data-view="reports"> <span class="icon">📈</span> Reports</a></li>
+                    <li><a href="#" class="nav-link" data-view="settings"> <span class="icon">⚙️</span> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Inventory Management</h1>
+                </header>
+
+            <div class="content-area inventory-view">
+                <div class="inventory-list-pane">
+                    <div class="list-controls">
+                        <input type="search" id="search-input" placeholder="Search by Code or Name...">
+                        <button id="filter-btn">Filters ▼</button>
+
+                        <div class="availability-check-controls">
+                             <input type="text" id="check-code-input" placeholder="Choli Code for Check">
+                             <input type="date" id="check-date-input" placeholder="Date">
+                             <button id="check-availability-btn">Check Availability</button>
+                        </div>
+                        </div>
+                    <ul class="inventory-list" id="inventory-list">
+                        <li class="loading-placeholder">Loading inventory...</li>
+                    </ul>
+                </div>
+
+                <div class="inventory-detail-pane" id="inventory-detail-pane">
+                    <div id="detail-placeholder" class="placeholder-message">
+                        <p>Select a choli from the list to view details.</p>
+                    </div>
+                    <div id="detail-content" class="hidden">
+                         <div class="detail-header">
+                            <h2 id="detail-name">Choli Name</h2>
+                            <span id="detail-code" class="code-badge">CODE</span>
+                         </div>
+                         <div class="detail-body">
+                            <div class="detail-image-section">
+                                <img id="detail-image" src="placeholder.png" alt="Choli Image" >
+                                </div>
+                            <div class="detail-info-section">
+                                <h3>Details</h3>
+                                <p><strong>Size:</strong> <span id="detail-size"></span></p>
+                                <p><strong>Fabric:</strong> <span id="detail-fabric"></span></p>
+                                <p><strong>Color:</strong> <span id="detail-color"></span></p>
+                                <p><strong>Price/Day:</strong> ₹<span id="detail-price"></span></p>
+                                <p><strong>Deposit:</strong> ₹<span id="detail-deposit"></span></p>
+                                <p><strong>Status:</strong> <span id="detail-status" class="status-badge"></span></p>
+
+                                <h3>Current Bookings</h3>
+                                <ul id="detail-bookings">
+                                    </ul>
+                                <p id="no-bookings-msg" class="hidden">Currently Available</p>
+                             </div>
+                         </div>
+                         <div class="detail-actions">
+                            <button class="btn btn-primary">Create Booking</button>
+                            <button class="btn btn-secondary">Edit Details</button>
+                            <button class="btn btn-warning">Mark Maintenance</button>
+                         </div>
+                    </div>
+                </div>
+            </div> <div class="content-area dashboard-view hidden"><h2>Dashboard Content Here</h2><p>Overview of rentals, upcoming returns, etc.</p></div>
+            <div class="content-area bookings-view hidden"><h2>Bookings Content Here</h2><p>Calendar view or list of all bookings.</p></div>
+            <div class="content-area customers-view hidden"><h2>Customers Content Here</h2><p>Manage customer details and rental history.</p></div>
+            <div class="content-area reports-view hidden"><h2>Reports Content Here</h2><p>Generate reports on earnings, popular items, etc.</p></div>
+            <div class="content-area settings-view hidden"><h2>Settings Content Here</h2><p>Application settings, user management.</p></div>
+
+        </main> </div> <script src="script.js"></script>
+</body>
+</html>
