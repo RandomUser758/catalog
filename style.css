@@ -1,0 +1,457 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                 Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+.hidden {
+    display: none !important; /* Utility class to hide elements */
+}
+
+/* Main App Layout */
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background-color: #2c3e50; /* Dark blue/grey */
+    color: #ecf0f1; /* Light grey text */
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.sidebar-header {
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar-header h3 {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+.sidebar-nav li.active a { /* Style for the active nav item */
+    background-color: #34495e;
+    border-left: 3px solid #3498db; /* Blue indicator */
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #bdc3c7; /* Lighter grey text */
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-left: 3px solid transparent; /* Placeholder for active indicator */
+}
+
+.sidebar-nav a:hover {
+    background-color: #34495e; /* Slightly darker blue/grey */
+    color: #fff;
+}
+
+.sidebar-nav .icon {
+    margin-right: 15px;
+    font-size: 1.1em;
+    width: 20px; /* Ensure alignment */
+    text-align: center;
+}
+
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    height: 100%;
+    overflow: hidden; /* Prevent main area scrolling, allow panes to scroll */
+}
+
+.main-header {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0; /* Prevent header shrinking */
+}
+
+.main-header h1 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Content Area Specific Views */
+.content-area {
+    flex-grow: 1;
+    padding: 20px;
+    overflow: auto; /* Allow scrolling within content area if needed */
+}
+/* Ensure inventory view uses flex */
+.inventory-view {
+     display: flex;
+     gap: 20px; /* Space between list and detail panes */
+     overflow: hidden; /* Let child panes handle scrolling */
+}
+
+
+/* Inventory List Pane */
+.inventory-list-pane {
+    width: 35%; /* Adjust width as needed */
+    min-width: 300px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto; /* Allow this pane to scroll */
+    flex-shrink: 0;
+}
+
+.list-controls {
+    padding: 10px 15px 15px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0; /* Prevent controls from shrinking */
+}
+
+#search-input {
+    flex-grow: 1; /* Take available space on first line */
+    min-width: 150px; /* Minimum width before wrapping */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+#filter-btn {
+    padding: 8px 12px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Style the availability check section */
+.availability-check-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%; /* Make it take full width below search */
+    margin-top: 10px; /* Add some space above */
+    padding-top: 10px; /* Add padding above */
+    border-top: 1px dashed #eee; /* Optional separator */
+}
+
+#check-code-input,
+#check-date-input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+#check-code-input {
+     flex-basis: 150px; /* Give code input a base width */
+     flex-grow: 1; /* Allow it to grow */
+}
+
+#check-date-input {
+    flex-basis: 140px; /* Give date input a base width */
+     /* Set specific width if needed, date pickers vary */
+}
+
+#check-availability-btn {
+    padding: 8px 12px;
+    background-color: #5dade2; /* A different blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+#check-availability-btn:hover {
+    background-color: #2e86c1;
+}
+
+
+.inventory-list {
+    list-style: none;
+    flex-grow: 1; /* Take remaining space */
+    overflow-y: auto; /* Scroll only the list itself */
+    padding-right: 5px; /* Space for scrollbar */
+}
+
+.inventory-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+}
+
+.inventory-list-item:hover {
+    background-color: #eaf2f8; /* Light blue hover */
+}
+
+.inventory-list-item.selected {
+    background-color: #d4e6f1; /* Slightly darker blue for selected */
+    font-weight: 500;
+}
+
+
+.item-thumbnail {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    background-color: #eee; /* Placeholder color */
+    border-radius: 4px;
+    object-fit: cover; /* If using real images */
+    flex-shrink: 0;
+}
+
+.item-info {
+    flex-grow: 1;
+    overflow: hidden; /* Prevent long names from breaking layout */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.item-info h4 {
+    font-size: 1em;
+    margin-bottom: 3px;
+    color: #2c3e50;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item-info p {
+    font-size: 0.85em;
+    color: #7f8c8d; /* Grey text */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-left: 10px; /* Space from item name/info */
+    vertical-align: middle;
+    flex-shrink: 0; /* Prevent badge shrinking */
+}
+
+.status-available {
+    background-color: #e8f5e9; /* Light green */
+    color: #2e7d32; /* Dark green */
+}
+
+.status-rented {
+    background-color: #fff3e0; /* Light orange */
+    color: #ef6c00; /* Dark orange */
+}
+.status-maintenance {
+    background-color: #fce4ec; /* Light pink */
+    color: #ad1457; /* Dark pink */
+}
+
+
+/* Inventory Detail Pane */
+.inventory-detail-pane {
+    flex-grow: 1;
+    padding: 10px 20px;
+    overflow-y: auto; /* Allow this pane to scroll */
+}
+
+.placeholder-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #7f8c8d;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 10px;
+}
+.detail-header h2 {
+    font-size: 1.6em;
+    color: #34495e;
+    flex-grow: 1; /* Allow name to take space */
+}
+.code-badge {
+    font-size: 0.9em;
+    background-color: #ecf0f1; /* Light grey */
+    color: #7f8c8d;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    white-space: nowrap;
+}
+
+.detail-body {
+    display: flex;
+    gap: 30px; /* Space between image and info sections */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.detail-image-section {
+     width: 100%; /* Take full width on small screens */
+     max-width: 300px; /* Limit image size on larger screens */
+     margin: 0 auto 20px auto; /* Center when wrapped */
+}
+@media (min-width: 768px) { /* Apply side-by-side layout on larger screens */
+     .detail-image-section {
+          width: 40%;
+          margin: 0; /* Reset margin */
+          flex-shrink: 0;
+     }
+}
+
+
+#detail-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain; /* Show whole image */
+    border-radius: 5px;
+    border: 1px solid #eee;
+    display: block; /* Remove extra space below image */
+}
+
+.detail-info-section {
+    flex-grow: 1;
+    min-width: 250px; /* Ensure info doesn't get too squished */
+}
+
+.detail-info-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #34495e;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 8px;
+}
+
+.detail-info-section p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+.detail-info-section p strong {
+    color: #555;
+    display: inline-block;
+    min-width: 80px; /* Align values */
+}
+
+#detail-bookings {
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px; /* Space below bookings */
+}
+
+#detail-bookings li {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+#no-bookings-msg {
+     font-style: italic;
+     color: #7f8c8d;
+}
+
+/* Action Buttons */
+.detail-actions {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #3498db; /* Blue */
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #ecf0f1; /* Light grey */
+    color: #34495e;
+    border: 1px solid #bdc3c7;
+}
+.btn-secondary:hover {
+    background-color: #dadedf;
+}
+
+.btn-warning {
+    background-color: #f39c12; /* Orange */
+    color: white;
+}
+.btn-warning:hover {
+    background-color: #d35400;
+}
